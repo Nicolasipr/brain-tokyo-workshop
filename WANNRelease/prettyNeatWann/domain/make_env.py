@@ -51,7 +51,12 @@ def make_env(env_name, seed=-1, render_mode=False):
       env.dt = 0.01
       env.t_limit = 200
 
-
+  # ---- STAMP CLASSIFIER
+  elif (env_name.startswith("Stamp_Classifier")):
+    from domain.stamp_classifier import StampClasiffierEnv
+    from domain.stamp_classifier import stamps_wrapper
+    trainSet, target = stamps_wrapper()
+    env = StampClasiffierEnv(trainSet, target)
 
 
   # -- Other  -------------------------------------------------------- -- #

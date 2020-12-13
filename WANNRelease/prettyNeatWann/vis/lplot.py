@@ -1,9 +1,9 @@
 """
 Laconic plot functions to replace some of the matplotlibs verbosity
 """
-from matplotlib import pyplot as plt
 import numpy as np
 import seaborn as sns
+from matplotlib import pyplot as plt
 
 
 # -- File I/O ------------------------------------------------------------ -- #

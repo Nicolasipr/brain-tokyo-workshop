@@ -170,3 +170,30 @@ bullet_ant = Game(env_name='AntBulletEnv-v0',
 )
 games['bullet_ant'] = bullet_ant
 
+# --- STAMP CLASIFFIER
+
+
+stamp_classifier = Game(env_name='Stamp_Classifier',
+  actionSelect='all', # all, soft, hard
+  input_size=256, # 16x16
+  output_size=5,
+  time_factor=0,
+  layers=[2187,2187,18432,18432,4608,9216,9216,9216,2304,64,256, 64, 90, 64,64],
+  i_act=np.full(256,1),
+  h_act=[1,3,4,5,6,7,8,9,10], # No step function
+  o_act=np.full(5,1),
+  weightCap = 2.0,
+  noise_bias=0.0,
+  output_noise=[False, False, False],
+  max_episode_length = 0,
+  in_out_labels = ["AGN", "SN", "VS", "Asteroid", "Bogus"]
+)
+LABELS = ["AGN", "SN", "VS", "Asteroid", "Bogus"]
+
+L = [list(range(1, stamp_classifier.input_size)),\
+     list(range(0, stamp_classifier.output_size))]
+# print('L',L)
+label = [item for sublist in L for item in sublist]
+stamp_classifier = stamp_classifier._replace(in_out_labels=label)
+games['stamp_classifier'] = stamp_classifier
+

@@ -1,0 +1,9 @@
+{
+    "task":"stamp_classifier",
+    "alg_nMean": 8,
+    "alg_nReps": 1,
+    "maxGen": 8192,
+    "popSize": 960,
+    "prob_initEnable": 0.05,
+    "select_tournSize": 32
+}

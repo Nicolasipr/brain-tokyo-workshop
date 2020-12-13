@@ -63,7 +63,9 @@ class ClassifyEnv(gym.Env):
     '''
     y = self.target[self.currIndx]
     m = y.shape[0]
-
+    print('action', action.shape)
+    # print('currIndx', self.currIndx)
+    # print('m', m)
     log_likelihood = -np.log(action[range(m),y])
     loss = np.sum(log_likelihood) / m
     reward = -loss
